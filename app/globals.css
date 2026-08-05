@@ -1,0 +1,72 @@
+/* Saans no es publica; usamos Inter como sustituto recomendado por el
+   propio DESIGN.md (peso 300 para titulares/estadisticas, 500 para UI).
+   SaansMono -> JetBrains Mono, para el bloque "encriptado" del radar. */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&family=Roboto+Mono:wght@400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --font-roboto-mono: "Roboto Mono", monospace;
+}
+
+/* Lenis (lenis/react) requiere estas clases para funcionar bien.
+   No la trae por defecto: sin esto el scroll puede sentirse raro o
+   "trabado" en algunos navegadores. Ojo: NO usar scroll-behavior:
+   smooth en html, porque compite con el smoothing propio de Lenis. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+body {
+  background: #000000;
+  color: #fcfaf9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+::selection {
+  background: #a2f6f5;
+  color: #200f0a;
+}
+
+:focus-visible {
+  outline: 2px solid #a2f6f5;
+  outline-offset: 2px;
+}
+
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.4); }
+}
