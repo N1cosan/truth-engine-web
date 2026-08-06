@@ -4,6 +4,8 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
+// Navbar - capsulas flotantes en oscuro.
+
 const NAV_ITEMS = [
   { name: "Plataforma", link: "/#architecture" },
   { name: "Compañía", link: "/company" },
@@ -18,11 +20,11 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-[1200px] items-center justify-between">
         <div />
 
-        {/* cápsula de links + CTA — desktop */}
+        {/* capsula de links + CTA - desktop */}
         <div className="hidden items-center overflow-hidden rounded-xl border border-white/10 bg-neutral-900/90 backdrop-blur-md lg:flex">
           <nav className="flex items-center gap-1 pl-5 pr-2">
             {NAV_ITEMS.map((item) => (
-              
+              <a
                 key={item.name}
                 href={item.link}
                 className="whitespace-nowrap px-3 py-2.5 font-roboto-mono text-[13px] uppercase tracking-[-0.02em] text-stone transition-colors hover:text-cream"
@@ -31,7 +33,7 @@ export default function Navbar() {
               </a>
             ))}
           </nav>
-          
+          <a
             href="/#contact"
             className="whitespace-nowrap bg-bio-lime px-4 py-2.5 font-roboto-mono text-[13px] uppercase tracking-[-0.02em] text-abyssal-ink transition hover:brightness-95"
           >
@@ -60,7 +62,7 @@ export default function Navbar() {
             className="mx-auto mt-2 flex max-w-[1200px] flex-col gap-1 overflow-hidden rounded-xl border border-white/10 bg-neutral-900/90 p-2 backdrop-blur-md lg:hidden"
           >
             {NAV_ITEMS.map((item) => (
-              
+              <a
                 key={item.name}
                 href={item.link}
                 onClick={() => setIsOpen(false)}
@@ -69,7 +71,7 @@ export default function Navbar() {
                 {item.name}
               </a>
             ))}
-            
+            <a
               href="/#contact"
               onClick={() => setIsOpen(false)}
               className="mt-1 rounded-lg bg-bio-lime px-4 py-3 text-center font-roboto-mono text-[13px] uppercase tracking-[-0.02em] text-abyssal-ink"

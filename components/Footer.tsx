@@ -23,7 +23,7 @@ export default function Footer() {
 
           <nav className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {FOOTER_LINKS.map((item) => (
-              
+              <a
                 key={item.name}
                 href={item.link}
                 className="font-roboto-mono text-[13px] uppercase tracking-[-0.02em] text-stone transition-colors hover:text-cream"
